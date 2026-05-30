@@ -56,6 +56,15 @@ int jnx_search(const char *json_path, const char *jnx_path,
         return -1;
     }
 
+    /* Si no hay coincidencias, la salida debe ser un arreglo JSON vacío. */
+    if (result->count == 0) {
+        fprintf(out, "[]\n");
+        free(buf);
+        fclose(json_file);
+        regex_result_free(result);
+        jnx_index_free(idx);
+        return 0;
+    }
 
     fprintf(out, "[\n");
 

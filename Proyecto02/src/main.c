@@ -144,8 +144,8 @@ static int cmd_search(const char *json_path, const char *pattern)
     /* Avisa si el índice podría estar desactualizado. */
     if (is_index_stale(json_path, jnx_path)) {
         fprintf(stderr,
-                "advertencia: '%s' es más nuevo que '%s'\n"
-                "             los resultados podrían estar desactualizados\n",
+                "advertencia: índice desactualizado: '%s' es más nuevo que'%s'\n"
+                "         los resultados podrían estar desactualizados\n",
                 json_path, jnx_path);
     }
 
